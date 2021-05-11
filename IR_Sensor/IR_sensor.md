@@ -39,42 +39,15 @@
 <br/>
 <p style='text-align: justify;'>Now let's talk about the pins on the board. FC-51 have three legs for interfacing with Arduino. Each legs have there associated marking on the board to indicate what that leg is used for. The VCC pin indicates the power in for the board. The 5v supply from the microcontroller is connected to the VCC and the ground (GND) of the board is connected to the GND pin of the microcontroller. The OUT pin of the board would act as the input for the Arduino. The OUT pin gives out 5V upon detecting a bright surface and 0V upon detecting a dark surface. There do exist inverted boards that just detects the opposite! So keep in mind to check board you have before you start coding. </p>
 <br/>
-<table style="margin-left: 90px;border : 1px solid;">
-    <thead>
-        <tr>
-            <th>Type of board</th>
-            <th>Color of surface</th>
-            <th>OUT signal</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2>Non inverted</td>
-            <td>Bright</td>
-            <td> 5V(high) </td>
-        </tr>
-        <tr>
-            <td>Dark</td>
-            <td> 0V(low) </td>
-        </tr>
-        <tr>
-            <td rowspan=2>Inverted</td>
-            <td>Bright</td>
-            <td> 0V(low) </td>
-        </tr>
-        <tr>
-            <td>Dark</td>
-            <td> 5V(high) </td>
-        </tr>
-</table>
+
 <br/>
 <p style='text-align: justify;'>
 Usually in an digital circuit, voltage below 2.3v is regarded as a low signal ( 0v | binary zero) and those above 2.5v as high signal ( 5v | binary 1). There do exist IR sensor boards that provide analog output reading. Make sure to understand the configuration of the board before interfacing with Arduino. With that, let's start coding. Since FC-51 gives digital output ( HIGH | LOW ) we would be using an Arduino digital pin of Arduino to interface.
 </p>
 
-### Code example 1
-Objective : Program to print the status of IR sensor to Serial monitor
-<br/>
+### Code example 1   
+Objective : Program to print the status of IR sensor to Serial monitor    
+
 
 ```C
 int IR_pin = 2;	    //connect OUT pin of IR sensor to 2nd pin of Arduino
