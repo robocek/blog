@@ -1,6 +1,6 @@
 # IR SENSORS
 ### _What is meant by IR?_ 
-<br/>
+
 <p style='text-align: justify;'> IR stands for Infrared Radiation, is an Electro-Magnetic Radiation (EMR) with wavelengths longer than those of visible light. Discovered in 1800 by astronomer Sir William Herschel, IR is a region of the electromagnetic radiation spectrum where wavelengths range from about 700 nanometers (nm) to 1 millimeter (mm). They are longer than those of visible light, but shorter than those of radio waves. As they do not fall under the visible spectrum, they remain invisible to the human eye. Certain animals and cameras can pick up those radiation to perceive them as images.</p>
 
 <p style='text-align: justify;'> Based on their range of wavelengths, IR can be further classified into three regions. The Near <img align="right" width="200" height="120" src="Pics/IR_spectrum.png" style="padding: 5px 15px 5px  "> Infrared region spans from 700nm to 1400nm and is widely used in most of the IR sensors and fibre optics. The Mid infrared region spans from 1400nm to 300nm and is mainly used in heat sensing applications. The Far infrared region that spans from 3000nm to 1mm is majorly used in thermal imaging. These different regions are effectively used to build various applications like night vision devices, infrared astronomy, infrared missile tracking etc. </p>
@@ -15,32 +15,29 @@
 <p style='text-align: justify;'>An active IR sensor consists of both IR transmitter and IR receiver. The transmitter transmits the IR signals which would strike on an object and would bounce back to the receiver. However not all signals are bounced from the surface of the object. The bouncing of signals depends on the colour and material of the object. The dark colors have the ability to absorb more energy and transmit only a small portion of the received light. Light colors on the other hand reflect most of the received light signals. It is this change of deflection of light that gives us the perception for colors. Since IR sensors are only capable of detecting the presence/absence of IR signals, they are employed to detect bright/dark surfaces. An IR sensor is not capable of differentiating various colors.
 </p>
 
-<img width="200" height="120" src="Pics/IR_working_single.png" class="center" style="padding: 10px 100px 5px;">
-
-<img align="center" width="250" height="120" src="Pics/IR_working_dual.png" class="center" style="padding: 10px 80px 5px;">
-
-<br/><br/>
+<p align="center"><img width="200" height="120" src="Pics/IR_working_single.png"></p>
+    
+<p align="center"><img width="250" height="120" src="Pics/IR_working_dual.png"></p>
 
 ### _IR sensor boards_
-<br/>
+
 <p style='text-align: justify;'>Now let's talk about the component required for a complete Active IR sensor. An IR sensor has two major LEDs that do the purpose of transmission and detection of signals. A transmission LED looks just like a normal LED diode. Upon applying sufficient voltage across the terminals, the LED produces signals which are transmitted in a straight line. A receiver LED acts as a photo-diode that excites electrons upon receiving an IR signal. The receiver changes its resistance, which is used to detect the presence of IR signal. It is quite easy to identify both the LEDs. The IR receiver would be in dark color to prevent detection of surrounding IR signals. Note that the Sun emits a wide range of electro-magnetic radiation, so it is possible for an IR receiver to detect the IR signals from the sunlight. Although it appears just like two LEDs, we would require proper circuitry to get a calibrated reading. Keep in mind that the receiver and transmitter LED need not always be on the same board, they can have separate circuits to function properly.
 </p>
 
 <br/>
 
 ### _Detailing IR sensor FC-51_
-<br/>
+
 <p style='text-align: justify;'>There are various IR sensor boards available in the market. You may choose any IR sensors suitable for your application. However the underlying principle of IR sensor are the same. Here we would make use of IR sensor board FC-51 to interface with Arduino.
 </p>
-<img width="200" height="200" src="Pics/IR_board.png" class="center" style="padding: 10px 150px 15px">
-<br/>
+
+<p align="center"><img width="200" height="200" src="Pics/IR_board.png"></p>
+
 <p style='text-align: justify;'>A typical IR sensor board consist of both the transmitter and receiver diodes along with supporting circuitry which includes a potentiometer, an IC and a couple of resistors and LEDs. The potentiometer is used to adjust the sensitivity of the board. The more sensitive the board is, greater will be the amplification of weak signal detected. In other words, <img align="right" width="250" height="150" src="Pics/IR_board_desp.png" style="padding: 5px 15px 5px">  it would be able to detect IR signal from bit greater distance. The IC would amplify the change in the resistance of IR receiver LED and trigger corresponding voltage variations. We can also find two additional indicative LED on the board. One of the LED glows if the board is powered and the other LED glows when the board detects IR signals. 
 </p>
-<br/>
-<p style='text-align: justify;'>Now let's talk about the pins on the board. FC-51 have three legs for interfacing with Arduino. Each legs have there associated marking on the board to indicate what that leg is used for. The VCC pin indicates the power in for the board. The 5v supply from the microcontroller is connected to the VCC and the ground (GND) of the board is connected to the GND pin of the microcontroller. The OUT pin of the board would act as the input for the Arduino. The OUT pin gives out 5V upon detecting a bright surface and 0V upon detecting a dark surface. There do exist inverted boards that just detects the opposite! So keep in mind to check board you have before you start coding. </p>
-<br/>
 
-<br/>
+<p style='text-align: justify;'>Now let's talk about the pins on the board. FC-51 have three legs for interfacing with Arduino. Each legs have there associated marking on the board to indicate what that leg is used for. The VCC pin indicates the power in for the board. The 5v supply from the microcontroller is connected to the VCC and the ground (GND) of the board is connected to the GND pin of the microcontroller. The OUT pin of the board would act as the input for the Arduino. The OUT pin gives out 5V upon detecting a bright surface and 0V upon detecting a dark surface. There do exist inverted boards that just detects the opposite! So keep in mind to check board you have before you start coding. </p>
+
 <p style='text-align: justify;'>
 Usually in an digital circuit, voltage below 2.3v is regarded as a low signal ( 0v | binary zero) and those above 2.5v as high signal ( 5v | binary 1). There do exist IR sensor boards that provide analog output reading. Make sure to understand the configuration of the board before interfacing with Arduino. With that, let's start coding. Since FC-51 gives digital output ( HIGH | LOW ) we would be using an Arduino digital pin of Arduino to interface.
 </p>
