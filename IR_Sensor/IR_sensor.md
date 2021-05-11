@@ -99,6 +99,7 @@ else{
 }
 
 ```
+
 <img class="center" width="300" height="180" src="Pics/IR_circuit_eg.png" style="padding: 10px 130px 15px">
 
 <p style='text-align: justify;'> Set the serial monitor at 9600 baud rate and see the results. We can find that when there is no object in front of sensor or in the presence of a dark object, the serial monitor shows "Dark surface detected". The monitor would show "Bright surface detected" when there is a white/reflective surface is introduced. Keep in mind that the sun light/flames also emit IR radiations that can be detected by IR sensors.</p>
@@ -214,6 +215,7 @@ delay(100);
 }
 
 ```
+
 <p style='text-align: justify;'>You might have noticed that the bot drifts or becomes unstable when it changes its direction suddenly. This is because the wheels are rotating with higher speed than our bot can handle. The solution to such problems is to control the speed of the wheels. Refer the chapter "Motor Driver" to build speed controlled bot. You may also find that both travel in a zig-zag fashion, the curves are not covered smoothly or the bot may miss some sharp curves. To avoid such problems, line followers are built using an IR array, where there are more sensors to detect the intensity of curves etc. 
 </p>
 <p style='text-align: justify;'>Line follower is one of the popular projects in Arduino-ROBOTICS. Various competitions are held across the world with varying difficulty and challenges. Maze solver is one of the most common events held. Speed, accuracy and reliability of bots are noted to announce the winner. To improve the probability of bagging the price, various statistical theories, mathematical models are applied and coded into the programs. Here we have detailed the basics of line followers. The rest is left to you to explore!
